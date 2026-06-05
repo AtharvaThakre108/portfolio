@@ -1,61 +1,14 @@
 import { motion } from 'framer-motion'
 
-// TODO: Replace ALL game dev project data with your real game projects
-const GAME_PROJECTS = [
-  {
-    num: '01',
-    title: 'VOID RUNNER',
-    desc: '2D platformer with procedural level generation and custom physics. Hand-authored lighting system using shadow casting. 2,400+ downloads on itch.io.',
-    tags: ['Unity', 'C#', 'GLSL', 'Procedural Gen'],
-    link: '#',  // TODO: itch.io or repo link
-  },
-  {
-    num: '02',
-    title: 'ECHO PROTOCOL',
-    desc: 'Multiplayer tactical shooter prototype. Client-side prediction + server reconciliation netcode. Built across a 48hr game jam with a team of 3.',
-    tags: ['Unreal', 'C++', 'Blueprints', 'Netcode'],
-    link: '#',
-  },
-  {
-    num: '03',
-    title: 'TERRAIN ENGINE',
-    desc: 'Infinite voxel world renderer. Compute shader-driven chunk meshing, dynamic LOD, and real-time biome blending. 60fps on mid-tier hardware.',
-    tags: ['Unity', 'C#', 'Compute Shaders', 'ECS'],
-    link: '#',
-  },
-  {
-    num: '04',
-    title: 'NPC BEHAVIOR SYS',
-    desc: 'Behavior Tree + Utility AI hybrid for open-world NPC decision making. Used across 3 released game jam entries. Published as a Unity package.',
-    tags: ['C#', 'Behavior Trees', 'DOTS', 'Open Source'],
-    link: '#',
-  },
-  {
-    num: '05',
-    title: 'FRACTAL DESCENT',
-    desc: 'Infinite fractal explorer rendered via ray marching with DE functions. Real-time parameter tweaking, color mapping, orbit trap shading.',
-    tags: ['WebGL', 'GLSL', 'Ray Marching', 'JS'],
-    link: '#',
-  },
-  {
-    num: '06',
-    title: 'SIGNAL LOST',
-    desc: 'Solo-developed horror puzzle game. Diegetic UI, environmental storytelling, custom post-processing stack. GMTK Jam 2023 Top 5% entry.',
-    tags: ['Godot', 'GDScript', 'Shader Graph'],
-    link: '#',
-  },
+// Skills that cross over from software to game dev
+const CROSSOVER_SKILLS = [
+  'C++ / C#', 'PYTHON SCRIPTING', 'REAL-TIME SYSTEMS',
+  'PHYSICS SIMULATION', 'DATA STRUCTURES', 'OPTIMIZATION',
+  'DOCKER / DEVOPS', 'NETWORKING / APIs', 'AI / BEHAVIOR',
+  'PROCEDURAL GEN', 'MATH / LINEAR ALGEBRA', 'SYSTEMS DESIGN',
 ]
 
-// TODO: Replace with your actual game dev skills
-const GM_SKILLS = [
-  'UNITY', 'UNREAL ENGINE', 'GODOT', 'C# / C++',
-  'GLSL / HLSL', 'PHYSICS SIMS', 'NETCODE', 'ECS / DOTS',
-  'COMPUTE SHADERS', 'PROCEDURAL GEN', 'AI / BEHAVIOR TREES', 'GAME JAM VET',
-]
-
-const stagger = {
-  animate: { transition: { staggerChildren: 0.07 } },
-}
+const stagger = { animate: { transition: { staggerChildren: 0.07 } } }
 const fadeItem = {
   initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -68,7 +21,7 @@ export default function GameDevMode() {
 
         {/* Header */}
         <div className="gm-title-row">
-          <p className="gm-unlocked">— SIGNAL UNLOCKED —</p>
+          <p className="gm-unlocked">— CHAPTER UNLOCKED —</p>
           <motion.h2
             className="gm-big-title"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -81,42 +34,29 @@ export default function GameDevMode() {
 
         {/* Bio */}
         <p className="gm-section-head">PLAYER PROFILE</p>
-        {/* TODO: Replace with your game dev background */}
         <div className="gm-bio">
-          <strong>HANDLE:</strong> Alex Kumar &nbsp;|&nbsp; <strong>CLASS:</strong> Developer / Designer<br /><br />
-          Been making games since I was 12 — RPG Maker, then Game Maker, now Unity and Unreal. 
-          What drives me is the craft: <strong>systems design that creates emergent player behavior</strong>, 
-          shader work that makes the mundane feel alive, netcode that holds up under pressure.<br /><br />
-          My software background crosses over cleanly: <strong>performance optimization</strong>, 
-          real-time data structures, multiplayer networking. Looking for a team that treats 
-          game dev as a discipline, not a product.
+          <strong>HANDLE:</strong> Atharva Thakre &nbsp;|&nbsp;
+          <strong>CLASS:</strong> Engineer → Game Developer<br /><br />
+
+          The games I grew up playing didn't feel like products. They felt like
+          systems — economies of tension, emergent behavior, rules that produced
+          surprise. That's what I want to build.<br /><br />
+
+          I'm a backend and AI engineer by training. That means I think about
+          <strong> performance under constraint</strong>, real-time data pipelines,
+          and systems that have to work correctly at all times. Every one of those
+          skills has a direct mapping into game development —{' '}
+          <strong>netcode, AI behavior trees, physics simulation, procedural generation</strong>.<br /><br />
+
+          I don't have a shipped game yet. I'm going to be honest about that.
+          What I have is a <strong>software foundation most junior game devs don't</strong>,
+          a clear-eyed understanding of what it takes to build real systems,
+          and the intent to apply all of it to games. Looking for a team
+          that values engineers who can learn fast and think in systems.
         </div>
 
-        {/* Projects */}
-        <p className="gm-section-head">SHIPPED PROJECTS</p>
-        <motion.div
-          className="gm-grid"
-          variants={stagger}
-          initial="initial"
-          animate="animate"
-        >
-          {GAME_PROJECTS.map(p => (
-            <motion.div key={p.num} className="gm-card" variants={fadeItem}>
-              <p className="gm-card-num">{p.num}</p>
-              <h3 className="gm-card-title">{p.title}</h3>
-              <p className="gm-card-desc">{p.desc}</p>
-              <div className="gm-tags">
-                {p.tags.map(t => <span key={t} className="gm-tag">{t}</span>)}
-              </div>
-              <a href={p.link} target="_blank" rel="noreferrer" className="gm-card-link">
-                [ VIEW PROJECT ]
-              </a>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Skill tree */}
-        <p className="gm-section-head">SKILL TREE UNLOCKED</p>
+        {/* Crossover skills */}
+        <p className="gm-section-head">TRANSFERABLE SKILL TREE</p>
         <motion.div
           className="gm-skills-wrap"
           variants={stagger}
@@ -124,18 +64,55 @@ export default function GameDevMode() {
           animate="animate"
           style={{ marginBottom: '3.5rem' }}
         >
-          {GM_SKILLS.map(s => (
-            <motion.div key={s} className="gm-skill-cell" variants={fadeItem}>
-              {s}
+          {CROSSOVER_SKILLS.map(s => (
+            <motion.div key={s} className="gm-skill-cell" variants={fadeItem}>{s}</motion.div>
+          ))}
+        </motion.div>
+
+        {/* What I'm learning */}
+        <p className="gm-section-head">CURRENTLY LEARNING</p>
+        <motion.div
+          className="gm-grid"
+          variants={stagger}
+          initial="initial"
+          animate="animate"
+          style={{ marginBottom: '3.5rem' }}
+        >
+          {[
+            {
+              num: '01',
+              title: 'UNITY ENGINE',
+              desc: 'Working through the fundamentals — scene management, physics, the component system. Building small prototypes to understand the engine before building anything serious.',
+              tags: ['Unity', 'C#', 'Game Objects', 'Physics'],
+            },
+            {
+              num: '02',
+              title: 'GAME MATH',
+              desc: 'Linear algebra, quaternions, matrix transforms. The math I already know from ML applies — now applying it to 3D space and rendering.',
+              tags: ['Linear Algebra', 'Quaternions', 'Vectors', '3D Math'],
+            },
+            {
+              num: '03',
+              title: 'SHADER BASICS',
+              desc: 'Starting with GLSL. Vertex and fragment shaders. I want to understand rendering at the hardware level before using high-level abstractions.',
+              tags: ['GLSL', 'Vertex Shaders', 'Fragment Shaders'],
+            },
+          ].map(item => (
+            <motion.div key={item.num} className="gm-card" variants={fadeItem}>
+              <p className="gm-card-num">{item.num}</p>
+              <h3 className="gm-card-title">{item.title}</h3>
+              <p className="gm-card-desc">{item.desc}</p>
+              <div className="gm-tags">
+                {item.tags.map(t => <span key={t} className="gm-tag">{t}</span>)}
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* CTA */}
         <div className="gm-cta">
-          {/* TODO: Replace email */}
           <a
-            href="mailto:YOUR@EMAIL.COM?subject=Game%20Dev%20Role%20Inquiry"
+            href="mailto:atharvathakre.108@gmail.com?subject=Game%20Dev%20Role%20Inquiry"
             className="gm-cta-btn"
           >
             ▶ PRESS START ◀

@@ -1,33 +1,32 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-// TODO: Replace with your actual skills and proficiency levels (0–100)
 const SKILL_GROUPS = [
   {
-    category: 'Frontend',
+    category: 'AI / Machine Learning',
     skills: [
-      { name: 'React / Next.js', level: 92 },
-      { name: 'TypeScript', level: 88 },
-      { name: 'CSS / Animation', level: 80 },
-      { name: 'WebGL / Canvas', level: 65 },
+      { name: 'LightGBM / XGBoost / SHAP', level: 90 },
+      { name: 'PyTorch / Deep Learning', level: 85 },
+      { name: 'LangChain / RAG Systems', level: 88 },
+      { name: 'BERT / NLP Fine-tuning', level: 82 },
     ],
   },
   {
-    category: 'Backend',
+    category: 'Backend & Systems',
     skills: [
-      { name: 'Node.js', level: 90 },
-      { name: 'Python / FastAPI', level: 85 },
-      { name: 'PostgreSQL', level: 82 },
-      { name: 'Redis', level: 74 },
+      { name: 'Python / Django', level: 92 },
+      { name: 'FastAPI / Flask', level: 90 },
+      { name: 'Redis (BRPOP, Sorted Sets, Hashes)', level: 84 },
+      { name: 'PostgreSQL / MySQL', level: 85 },
     ],
   },
   {
-    category: 'Infrastructure',
+    category: 'DevOps & Infrastructure',
     skills: [
-      { name: 'Docker / K8s', level: 78 },
-      { name: 'AWS / GCP', level: 75 },
-      { name: 'CI/CD Pipelines', level: 84 },
-      { name: 'Linux / Shell', level: 80 },
+      { name: 'Docker / docker-compose', level: 86 },
+      { name: 'CI/CD / GitHub Actions', level: 80 },
+      { name: 'REST API Design', level: 90 },
+      { name: 'Git', level: 92 },
     ],
   },
 ]
@@ -42,10 +41,7 @@ function SkillBar({ name, level, inView, delay }) {
       <div className="skill-bar-bg">
         <div
           className={`skill-bar-fill ${inView ? 'visible' : ''}`}
-          style={{
-            width: `${level}%`,
-            transitionDelay: `${delay}s`,
-          }}
+          style={{ width: `${level}%`, transitionDelay: `${delay}s` }}
         />
       </div>
     </div>
@@ -59,9 +55,7 @@ export default function Skills() {
   return (
     <section className="site-section" id="skills" ref={ref}>
       <p className="section-eyebrow">Capabilities</p>
-      <h2 className="section-title">
-        What I<br /><em>know</em>
-      </h2>
+      <h2 className="section-title">What I<br /><em>know</em></h2>
 
       <div className="skills-categories">
         {SKILL_GROUPS.map((group, gi) => (
@@ -85,6 +79,55 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
+
+      {/* Languages strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        style={{ marginTop: '3rem', paddingTop: '2.5rem', borderTop: '1px solid var(--border)' }}
+      >
+        <p style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.25rem' }}>
+          Languages
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          {['Python', 'JavaScript', 'C#', 'C++', 'Java', 'SQL', 'Bash'].map(lang => (
+            <span key={lang} className="tech-tag" style={{ fontSize: '11px', padding: '6px 14px' }}>
+              {lang}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Concepts strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.75 }}
+        style={{ marginTop: '2rem' }}
+      >
+        <p style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '1.25rem' }}>
+          Concepts & Patterns
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          {[
+            'Producer-Consumer Pattern',
+            'Distributed Systems',
+            'Microservices',
+            'RBAC / Auth',
+            'Query Optimization',
+            'Exponential Backoff',
+            'Dead Letter Queues',
+            'Semantic Search',
+            'Feature Engineering',
+            'Model Explainability',
+          ].map(c => (
+            <span key={c} className="tech-tag" style={{ fontSize: '11px', padding: '6px 14px' }}>
+              {c}
+            </span>
+          ))}
+        </div>
+      </motion.div>
     </section>
   )
 }

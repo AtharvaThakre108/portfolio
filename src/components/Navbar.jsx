@@ -13,16 +13,14 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      {/* TODO: Replace with your initials */}
-      <div className="nav-logo"><span>A</span>K</div>
+      <div className="nav-logo"><span>A</span>T</div>
 
       <ul className="nav-links">
         <li><a href="#projects">Work</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
-        {/* TODO: Replace YOUR_RESUME.pdf */}
-        <li><a href="YOUR_RESUME.pdf" download>Résumé</a></li>
+        <li><a href="/AtharvaThakre_resume.pdf" download>Résumé</a></li>
       </ul>
 
       <div className="nav-status">
