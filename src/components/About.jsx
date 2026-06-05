@@ -27,16 +27,16 @@ export default function About() {
           <p>
             He does not believe in the boundary between software engineering and machine 
             learning. A pipeline is just a system. An API serving model predictions is just 
-            backend work with <strong>interesting inputs</strong>. He builds both without distinction — 
+            backend work with <strong>interesting inputs</strong>. He builds both without distinction be it 
             from PostgreSQL query optimization to fine-tuning BERT and deploying RAG APIs with Docker.
           </p>
           <p>
-            Underneath all of it, there is a <strong>game developer in waiting</strong>. Not a hobbyist — 
+            Underneath all of it, there is a <strong>game developer in waiting</strong>. Not a hobbyist but 
             someone who understands that the best games are engineered experiences, that the 
             fun lives in the systems, and who intends to build them properly.
           </p>
           <p>
-            Currently finishing his <strong>MCA at PES University</strong> and looking for a team 
+            Finished his <strong>MCA at PES University</strong> and looking for a team 
             that ships things worth using.
           </p>
 

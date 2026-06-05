@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="hero-content">
         <motion.div className="hero-eyebrow" {...fadeUp(0.2)}>
           <span className="hero-eyebrow-line" />
-          Backend Engineer &nbsp;·&nbsp; AI Systems &nbsp;·&nbsp; India
+          Full Stack &nbsp;·&nbsp; Backend Engineer &nbsp;·&nbsp; AI Systems &nbsp;·&nbsp; India
         </motion.div>
 
         <motion.h1 className="hero-name" {...fadeUp(0.35)}>
